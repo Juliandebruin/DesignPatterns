@@ -4,7 +4,6 @@
 #include "IObserver.h"
 
 Subject::Subject() :
-    //_name(""),
     _message(""),
     _ids{},
     _list_observer{},
@@ -58,13 +57,3 @@ void Subject::set_input(bool value)
     _output = value;
     Notify();
 }
-
-//void Subject::set_name(string name)
-//{
-//    _name = name;
-//}
-//
-//string Subject::get_name()
-//{
-//    return _name;
-//}

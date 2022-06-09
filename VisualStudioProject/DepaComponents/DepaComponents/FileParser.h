@@ -34,6 +34,7 @@ public:
 
 	bool check_for_description_end(std::vector<std::string> tokens, int position);
 	void display_nodes_and_links();
+	void print_all();
 
 private:
 	Utils _utils;

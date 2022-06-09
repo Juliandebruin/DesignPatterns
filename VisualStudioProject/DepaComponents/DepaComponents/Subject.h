@@ -18,12 +18,8 @@ public:
     void CreateMessage(std::string message = "Empty");
     void HowManyObserver();
     void set_input(bool value);
-    
-    /*void set_name(string name);
-    string get_name();*/
 
 private:
-    //std::string _name;
     std::string _message;
 
     std::list<int> _ids;

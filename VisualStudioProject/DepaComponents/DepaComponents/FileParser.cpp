@@ -112,7 +112,7 @@ void FileParser::create_nodes()
 
 Components* FileParser::get_component(std::string componentName)
 {
-	for (int i = 0; i < _nodes_size; i++) {
+	for (int i = 0; i < _nodes_size - 1; i++) {
 		if (componentName == _components[i]->get_name()) {
 			return _components[i];
 		}
@@ -183,6 +183,14 @@ void FileParser::display_nodes_and_links()
 	else
 	{
 		std::cout << "File has not been parsed yet." << std::endl;
+	}
+}
+
+void FileParser::print_all()
+{
+	for (int i = 0; i < _nodes_size - 1; i++)
+	{
+		std::cout << "Name: " << _components[i]->get_name() << " Output: " << _components[i]->_output << std::endl;
 	}
 }
 
