@@ -74,7 +74,7 @@ void FileParser::parse_nodes_and_links()
 
 void FileParser::create_nodes()
 {
-	std::cout << "\nNodes: \n" << std::endl;
+	//std::cout << "\nNodes: \n" << std::endl;
 	std::vector<std::string> nodes = tokenizer(_file_node_description, ';');
 
 	_nodes_size = nodes.size();
@@ -105,7 +105,7 @@ void FileParser::create_nodes()
 				std::cout << "Componenttype not found" << std::endl;
 			}			
 
-			std::cout << "Nodename: " << nodeName << " Nodetype: " << nodeType << std::endl;
+			//std::cout << "Nodename: " << nodeName << " Nodetype: " << nodeType << std::endl;
 		}
 	}
 }
@@ -141,7 +141,7 @@ void FileParser::set_links(std::string links, std::string nodeName)
 
 void FileParser::create_links()
 {
-	std::cout << "\nLinks: \n" << std::endl;
+	//std::cout << "\nLinks: \n" << std::endl;
 	std::vector<std::string> links = tokenizer(_file_link_description, ';');
 
 	for (int i = 0; i < links.size(); i++)
@@ -190,7 +190,7 @@ void FileParser::print_all()
 {
 	for (int i = 0; i < _nodes_size - 1; i++)
 	{
-		std::cout << "Name: " << _components[i]->get_name() << " Output: " << _components[i]->_output << std::endl;
+		std::cout << "   Name: " << _components[i]->get_name() << " Output: " << _components[i]->_output << std::endl;
 	}
 }
 

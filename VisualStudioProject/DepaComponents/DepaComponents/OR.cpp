@@ -19,8 +19,8 @@ OR::OR(int id) : Components(id)
 void OR::Update(bool output, int index)
 {
     _input[index] = output;
-    _output = (_input[0] + _input[1]) * ((1 - _input[0]) + (1 - _input[1]));
-    PrintInfo();
+    _output = (_input[0] + _input[1]) ;
+    //PrintInfo();
     Notify();
 }
 

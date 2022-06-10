@@ -3,19 +3,7 @@
 #include "Subject.h"
 #include "IObserver.h"
 
-Subject::Subject() :
-    _message(""),
-    _ids{},
-    _list_observer{},
-    _number_of_listeners(0),
-    _output(false),
-    _input{ 0,0,0,0,0,0,0,0,0 }
-{
-}
 
-Subject::~Subject()
-{
-}
 
 void Subject::Attach(IObserver* observer, int index)
 {

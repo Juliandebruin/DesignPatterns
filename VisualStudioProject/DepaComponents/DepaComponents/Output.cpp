@@ -17,7 +17,7 @@ Output::Output(int id) : Components(id)
 
 void Output::PrintInfo()
 {
-    std::cout << "Observer" << "output " << output << "\n";
+    std::cout << "Observer" << "output " << _output << "\n";
 }
 
 Components* Output::clone() const

@@ -151,6 +151,7 @@
     <ClCompile Include="OR.cpp" />
     <ClCompile Include="Output.cpp" />
     <ClCompile Include="Subject.cpp" />
+    <ClCompile Include="UserInterface.cpp" />
     <ClCompile Include="Utils.cpp" />
     <ClCompile Include="XOR.cpp" />
   </ItemGroup>
@@ -172,6 +173,7 @@
     <ClInclude Include="OR.h" />
     <ClInclude Include="Output.h" />
     <ClInclude Include="Subject.h" />
+    <ClInclude Include="UserInterface.h" />
     <ClInclude Include="Utils.h" />
     <ClInclude Include="XOR.h" />
   </ItemGroup>

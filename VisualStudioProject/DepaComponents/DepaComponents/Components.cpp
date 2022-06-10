@@ -24,7 +24,7 @@ Components::~Components()
 
 void Components::set_list(Components& subject)
 {
-    subject_ = subject;
+    //subject_ = subject;
     this->Attach(&subject, subject._number_of_listeners);
     subject._number_of_listeners++;
 }
