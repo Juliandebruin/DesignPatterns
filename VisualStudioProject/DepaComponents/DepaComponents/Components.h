@@ -5,6 +5,8 @@
 #include <iostream>
 #include <string>
 #include <list>
+#include<windows.h>
+
 
 using namespace std;
 
@@ -30,4 +32,6 @@ public:
     list<bool> inputs;
     bool output = 0;
     string _name;
+
+    int propegation_delay_ms = 1;
 };

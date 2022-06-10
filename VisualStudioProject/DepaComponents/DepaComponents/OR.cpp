@@ -21,6 +21,7 @@ void OR::Update(bool output, int index)
     _input[index] = output;
     _output = (_input[0] + _input[1]) ;
     //PrintInfo();
+    Sleep(propegation_delay_ms);
     Notify();
 }
 
