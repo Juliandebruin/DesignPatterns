@@ -20,9 +20,7 @@ Utils::~Utils()
 
 int Utils::get_component_id(string componentName)
 {
-    if (componentName == "INPUT_HIGH" || componentName == "INPUT_LOW") {
-        componentName = "INPUT";
-    }
+   
 
     int id = _component_map[componentName];
 

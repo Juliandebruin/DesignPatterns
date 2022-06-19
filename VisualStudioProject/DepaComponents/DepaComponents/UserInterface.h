@@ -10,7 +10,7 @@ public:
 
 	void start_interface();
 private:
-	void load_file();
+	void load_file(string);
 	void change_input(string name, bool value);
 	FileParser* fParser = nullptr;
 };

@@ -2,7 +2,8 @@
 
 #include "Subject.h"
 #include "IObserver.h"
-
+#include <thread>
+#include <iostream>
 
 
 void Subject::Attach(IObserver* observer, int index)
@@ -18,15 +19,20 @@ void Subject::Detach(IObserver* observer)
 
 void Subject::Notify()
 {
-    std::list<IObserver*>::iterator iterator = _list_observer.begin();
-    //HowManyObserver();
+    iterator = _list_observer.begin();
     int i = 0;
+    std::vector<thread*> vec;
+    thread* t = nullptr;
     while (iterator != _list_observer.end()) {
-        auto it1 = std::next(_ids.begin(), i);
-        (*iterator)->Update(_output, *it1);
+        id = _ids.at(i);
+        t= new thread([this] {(*iterator)->Update(_output, id); });
+        t->join();
+        vec.push_back(t);
+        //(*iterator)->Update(_output, *it1);
         ++iterator;
         i++;
     }
+   
 }
 
 void Subject::CreateMessage(std::string message)

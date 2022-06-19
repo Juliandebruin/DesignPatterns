@@ -9,12 +9,12 @@
 #include "FactoryMethod.h"
 #include "UserInterface.h"
 
+#include "FactoryLangLib.h"
+
 using namespace std;
 
 UserInterface::UserInterface()
 {
-	
-
 }
 
 UserInterface::~UserInterface()
@@ -23,69 +23,66 @@ UserInterface::~UserInterface()
 
 void UserInterface::start_interface()
 {
-	cout << "Welcome" << endl;
-	cout << "Eneter 'help' for all command options." << endl;
+	cout << "Welcome, Welkom " << endl;
+	cout << "Enter your language (en), Voer je taal in(nl): ";
+	string language;
+	cin >> language;
+
+	FactoryLangLib* factorylib = new FactoryLangLib();
+	LanguageLib* text = factorylib->CreatePrototype(language);
+
+	cout << text->get_text(0) << endl;
+	cout << "#";
 	string input;
 	while (cin >> input) {
-		if (input == "help") {
-			cout << "	Enter '1' to load in file" << endl;
-			cout << "	Enter '2' to show all outputs" << endl;
-			cout << "	Enter '3' to show all inputs" << endl;
-			cout << "	Enter '4' to change inputs" << endl;
-			cout << "	Enter 'exit' to close program" << endl;
+		if (input == text->get_text(1)) {
+			cout << text->get_text(2) << endl;
 		}
-		else if (input == "exit") {
+		else if (input == text->get_text(3)) {
 			break;
-
 		}
 		else if (input == "1") {
-			load_file();
-
+			string input_path = "";
+			cout << text->get_text(4);
+			cin >> input_path;
+			input_path = "PdfExample.txt";
+			load_file(input_path);
 		}
 		else if (input == "2") {
-			string component = "hoi";
-			cout << "Enter name component:";
+			string component = "";
+			cout << text->get_text(5);
 			cin >> component;
 			bool value;
-			cout << "Enter value:";
+			cout << text->get_text(6);
 			cin >> value;
 			change_input(component, value);
 		}
-
+		else if (input == "3") {
+			fParser->print_all();
+		}
+		cout << "#";
 	}
 	
 }
 
-void UserInterface::load_file()
+void UserInterface::load_file(string input_path)
 {
-	string input_path = "hoi";
-	cout << "Enter path of file:" ;
-	cin >> input_path;
-	input_path = "PdfExample.txt";
+	
 	fParser= new FileParser(input_path);
 	
 
 	fParser->parse_nodes_and_links();
-	//fParser.display_nodes_and_links();
-
 	fParser->create_nodes();
 	fParser->create_links();
 
-	Components* A = fParser->get_component("A");
-	Components* B = fParser->get_component("B");
-	Components* Cin = fParser->get_component("C");
+	fParser->set_inputs();
+	fParser->print_outputs();
 
-	A->set_input(0);
-	B->set_input(1);
-	Cin->set_input(1);
-
-
-	fParser->print_all();
 }
 
 void UserInterface::change_input(string name, bool value)
 {
 	Components* com = fParser->get_component(name);
 	com->set_input(value);
-	fParser->print_all();
+	fParser->print_outputs();
 }

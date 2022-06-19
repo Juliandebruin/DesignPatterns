@@ -7,12 +7,10 @@ OR OR::m_cInstance(4);
 
 OR::OR()
 {
-    //std::cout << "in default constructor Afgeleide" << std::endl;
 }
 
 OR::OR(int id) : Components(id)
 {
-    //std::cout << "in assignment constructor Afgeleide" << std::endl;
 }
 
 
@@ -37,5 +35,4 @@ Components* OR::clone() const
 
 OR::~OR()
 {
-    //std::cout << "Goodbye, I was the Observer \"" << this->number_ << "\".\n";
 }

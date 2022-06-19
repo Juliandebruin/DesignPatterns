@@ -161,13 +161,17 @@
   <ItemGroup>
     <ClInclude Include="AND.h" />
     <ClInclude Include="Components.h" />
+    <ClInclude Include="ENLib.h" />
+    <ClInclude Include="FactoryLangLib.h" />
     <ClInclude Include="FactoryMethod.h" />
     <ClInclude Include="FactoryMethod.hpp" />
     <ClInclude Include="FileParser.h" />
     <ClInclude Include="FileReader.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="IObserver.h" />
+    <ClInclude Include="LanguageLib.h" />
     <ClInclude Include="NAND.h" />
+    <ClInclude Include="NLLib.h" />
     <ClInclude Include="NOR.h" />
     <ClInclude Include="NOT.h" />
     <ClInclude Include="OR.h" />

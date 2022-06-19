@@ -7,12 +7,10 @@ Output Output::m_cInstance(2);
 
 Output::Output()
 {
-    //std::cout << "in default constructor Afgeleide" << std::endl;
 }
 
 Output::Output(int id) : Components(id)
 {
-    //std::cout << "in assignment constructor Afgeleide" << std::endl;
 }
 
 void Output::PrintInfo()
@@ -27,13 +25,12 @@ Components* Output::clone() const
 
 Output::~Output()
 {
-    //std::cout << "Goodbye, I was the Observer \"" << this->number_ << "\".\n";
 }
 
 void Output::Update(bool output, int index)
 {
     _input[0] = output;
     _output = _input[0];
-    PrintInfo();
+    //PrintInfo();
     Notify();
 }
