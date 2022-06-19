@@ -34,6 +34,9 @@ public:
 
 	bool check_for_description_end(std::vector<std::string> tokens, int position);
 	void display_nodes_and_links();
+	void print_all();
+	void set_inputs();
+	void print_outputs();
 
 private:
 	Utils _utils;
@@ -42,6 +45,9 @@ private:
 	FileReader  _file_reader; /*< File reader object */
 	std::string _file_node_description; /*< Description of all nodes */
 	std::string _file_link_description; /*< Description of all links */
+
+	struct Input { string name; int value; } ;
+	std::vector<Input>* input_values;
 };
 
 /**

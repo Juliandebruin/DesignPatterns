@@ -5,6 +5,8 @@
 #include <iostream>
 #include <string>
 #include <list>
+#include<windows.h>
+
 
 using namespace std;
 
@@ -24,10 +26,16 @@ public:
 
     void set_name(string name);
     string get_name();
+    string get_type();
+    void set_type(string);
     
 public:
     Subject& subject_ = *this;
     list<bool> inputs;
     bool output = 0;
     string _name;
+    string _type;
+
+
+    int propegation_delay_ms = 1;
 };

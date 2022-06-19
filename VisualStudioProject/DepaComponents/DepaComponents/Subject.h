@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <list>
+#include <vector>
 using namespace std;
 
 class IObserver;
@@ -9,8 +10,6 @@ class IObserver;
 class Subject 
 {
 public:
-    Subject();
-    virtual ~Subject();
 
     void Attach(IObserver* observer, int index);
     void Detach(IObserver* observer);
@@ -18,20 +17,20 @@ public:
     void CreateMessage(std::string message = "Empty");
     void HowManyObserver();
     void set_input(bool value);
-    
-    /*void set_name(string name);
-    string get_name();*/
+    bool _output = 0;
 
+    std::list<IObserver*> _list_observer;
 private:
-    //std::string _name;
     std::string _message;
 
-    std::list<int> _ids;
-    std::list<IObserver*> _list_observer;
+    std::vector<int> _ids;
+    
 
-public:
+protected:
     int _number_of_listeners;
-    bool _output = 0;
-    bool _input[10];
+    int id;
+    std::list<IObserver*>::iterator iterator;
+
+    bool _input[10] = { 0,0,0,0,0,0,0,0,0 };
 };
 
