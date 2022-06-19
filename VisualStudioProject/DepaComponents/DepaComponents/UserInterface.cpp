@@ -45,7 +45,7 @@ void UserInterface::start_interface()
 			string input_path = "";
 			cout << text->get_text(4);
 			cin >> input_path;
-			input_path = "PdfExample.txt";
+			input_path = "PdfExample.txt"; //"circuit2.txt";//
 			load_file(input_path);
 		}
 		else if (input == "2") {
@@ -70,7 +70,6 @@ void UserInterface::load_file(string input_path)
 	
 	fParser= new FileParser(input_path);
 	
-
 	fParser->parse_nodes_and_links();
 	fParser->create_nodes();
 	fParser->create_links();

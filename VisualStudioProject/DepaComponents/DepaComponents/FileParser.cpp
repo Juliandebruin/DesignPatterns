@@ -157,7 +157,6 @@ void FileParser::set_links(std::string links, std::string nodeName)
 
 void FileParser::create_links()
 {
-	//std::cout << "\nLinks: \n" << std::endl;
 	std::vector<std::string> links = tokenizer(_file_link_description, ';');
 
 	for (int i = 0; i < links.size(); i++)
@@ -177,9 +176,6 @@ void FileParser::create_links()
 			set_links(links, nodeName);
 		}
 	}
-	
-
-	
 
 }
 
