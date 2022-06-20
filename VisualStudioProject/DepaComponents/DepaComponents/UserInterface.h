@@ -1,6 +1,6 @@
 #pragma once
 
-#include "FileParser.h"
+#include "Process.h"
 
 class UserInterface
 {
@@ -9,9 +9,8 @@ public:
 	virtual ~UserInterface();
 
 	void start_interface();
-	void change_input(string name, bool value);
 
 private:
-	FileParser _file_parser;
+	Process _process;
 };
 

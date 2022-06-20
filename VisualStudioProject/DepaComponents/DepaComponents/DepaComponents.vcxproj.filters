@@ -81,6 +81,12 @@
     <ClCompile Include="Subject.cpp">
       <Filter>Source Files\Components\Observer</Filter>
     </ClCompile>
+    <ClCompile Include="Process.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TempInput.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="circuit2.txt">
@@ -150,6 +156,12 @@
     </ClInclude>
     <ClInclude Include="Subject.h">
       <Filter>Header Files\Components\Observer</Filter>
+    </ClInclude>
+    <ClInclude Include="Process.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TempInput.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

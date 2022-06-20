@@ -9,7 +9,7 @@
 using namespace std;
 
 UserInterface::UserInterface():
-	_file_parser()
+	_process()
 {
 }
 
@@ -43,7 +43,7 @@ void UserInterface::start_interface()
 			string input_path = "";
 			cout << text->get_text(4);
 			cin >> input_path;
-			_file_parser.parse_file(input_path);
+			_process.execute_process(input_path);
 		}
 		else if (input == "2") {
 			string component = "";
@@ -52,18 +52,11 @@ void UserInterface::start_interface()
 			bool value;
 			cout << text->get_text(6);
 			cin >> value;
-			change_input(component, value);
+			_process.change_input(component, value);
 		}
 		else if (input == "3") {
-			_file_parser.print_all();
+			_process.print_all();
 		}
 		cout << "# ";
 	}
-}
-
-void UserInterface::change_input(string name, bool value)
-{
-	Components* com = _file_parser.get_component(name);
-	com->set_input(value);
-	_file_parser.print_outputs();
 }
