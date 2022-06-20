@@ -4,6 +4,7 @@
 #include <iostream>
 #include <sstream>
 #include <list>
+#include <algorithm>
 
 FileParser::FileParser():
 	_components{},
@@ -156,9 +157,59 @@ void FileParser::set_links(std::string links, std::string nodeName)
 	}
 }
 
+int FileParser::get_index(vector<string> v, string K)
+{
+	for (int i = 0; i < v.size(); i++) {
+		if (v.at(i) == K)
+			return i;
+	}
+	return -1;
+}
+
 void FileParser::create_links()
 {
 	std::vector<std::string> links = tokenizer(_file_link_description, ';');
+	
+	
+	std::vector<std::string> links_parsed_first;
+	std::vector<std::string> links_parsed_second;
+	std::vector<std::string> used_output_ports;
+	for (int i = 0; i < links.size(); i++)
+	{
+		std::vector<std::string> link = tokenizer(links[i], ':');
+		if (link.size() == 2)
+		{
+			std::vector<std::string> linkName = tokenizer(link[1], ',');
+			for (int j = 0; j < linkName.size(); j++) {
+				links_parsed_first.push_back(clear_string(link[0]));
+				links_parsed_second.push_back(clear_string(linkName[j]));
+			}
+		}
+	}
+	
+	// recursie detection
+	for (int i = 0; i < links_parsed_first.size(); i++)
+	{
+		used_output_ports.clear();
+		std::string nodeName = links_parsed_first[i];
+		std::string links = links_parsed_second[i];
+
+		int index = get_index(links_parsed_first, links);
+		while (index != -1) {
+			std::string nodeName = links_parsed_first[index];
+			std::string links = links_parsed_second[index];
+
+			if (get_index(used_output_ports, links) == -1) {
+				used_output_ports.push_back(links_parsed_second[index]);
+			}
+			else {
+				cout << "recursie found";
+				return;
+			}
+			index = get_index(links_parsed_first, links);
+		}
+	}
+	
 
 	for (int i = 0; i < links.size(); i++)
 	{

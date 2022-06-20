@@ -21,7 +21,6 @@ UserInterface::~UserInterface()
 
 void UserInterface::start_interface()
 {
-	
 	LanguageLibrary* libary = nullptr;
 	string language;
 	while (libary == nullptr) {
@@ -47,6 +46,7 @@ void UserInterface::start_interface()
 			string input_path = "";
 			cout << libary->get_text("path_text");
 			cin >> input_path;
+			input_path = "circuit2.txt";
 			_process.execute_process(input_path);
 		}
 		else if (input == "2") {

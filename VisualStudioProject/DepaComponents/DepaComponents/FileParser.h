@@ -16,6 +16,7 @@ public:
 
 	std::vector<TempInput*>	 get_inputs();
 	std::vector<Components*> get_components();
+	int get_index(vector<string> v, string K);
 
 private:
 	void split_file();
