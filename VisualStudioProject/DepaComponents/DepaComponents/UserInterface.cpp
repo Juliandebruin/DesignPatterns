@@ -7,6 +7,7 @@
 #include <iostream>
 #include <string>
 
+using std::istringstream;
 using namespace std;
 
 UserInterface::UserInterface():
@@ -20,19 +21,22 @@ UserInterface::~UserInterface()
 
 void UserInterface::start_interface()
 {
-	cout << "Welcome, Welkom " << endl;
-	cout << "Enter your language (en), Voer je taal in (nl): ";
-
+	
+	LanguageLibrary* libary = nullptr;
 	string language;
-	cin >> language;
-
-	LanguageLibrary* libary = FactoryMethod<std::string, LanguageLibrary>::create(language);
+	while (libary == nullptr) {
+		cout << "Welcome, Welkom " << endl;
+		cout << "Enter your language (en), Voer je taal in (nl): ";
+		cin >> language;
+		libary = FactoryMethod<std::string, LanguageLibrary>::create(language);
+	}
 
 	cout << libary->get_text("explenation") << endl;
 	cout << "# ";
 	string input;
 
-	while (cin >> input) {
+	while (0==0) {
+		cin >> input;
 		if (input == libary->get_text("help_word")) {
 			cout << libary->get_text("help_text") << endl;
 		}
@@ -49,10 +53,13 @@ void UserInterface::start_interface()
 			string component = "";
 			cout << libary->get_text("component_text");
 			cin >> component;
-			bool value;
+			string value_port = "";
 			cout << libary->get_text("new_value_text");
-			cin >> value;
-			_process.change_input(component, value);
+			cin >> value_port;
+			if (value_port == "1") 
+				_process.change_input(component, 1);
+			else
+				_process.change_input(component, 0);
 		}
 		else if (input == "3") {
 			_process.print_all();

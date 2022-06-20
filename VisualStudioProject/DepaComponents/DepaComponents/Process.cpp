@@ -61,7 +61,10 @@ void Process::print_outputs()
 void Process::change_input(std::string componentName, bool inputValue)
 {
 	Components* component = get_component(componentName);
-	component->set_input(inputValue);
-	print_outputs();
+	if (component != nullptr)
+	{
+		component->set_input(inputValue);
+		print_outputs();
+	}
 }
 
