@@ -7,7 +7,7 @@
 using namespace std;
 
 FileParser::FileParser(std::string fileName):
-	_nodes_size(0),
+	_components{},
 	_file_reader(fileName),
 	_file_node_description(""),
 	_file_link_description("")
@@ -76,8 +76,6 @@ void FileParser::create_nodes()
 {
 	std::vector<std::string> nodes = tokenizer(_file_node_description, ';');
 
-	_nodes_size = nodes.size();
-	_components = new Components * [_nodes_size];
 	input_values = new vector<Input>();
 	for (int i = 0; i < nodes.size(); i++)
 	{
@@ -88,10 +86,8 @@ void FileParser::create_nodes()
 			std::string nodeName = node[0];
 			std::string nodeType = node[1];
 
-			nodeName = remove_from_string(nodeName, ' ' );
-			nodeName = remove_from_string(nodeName, '\n');
-			nodeType = remove_from_string(nodeType, ' ' );
-			nodeType = remove_from_string(nodeType, '\n');
+			nodeName = clear_string(nodeName);
+			nodeType = clear_string(nodeType);
 
 			if (nodeType == "INPUT_HIGH") {
 				nodeType = "INPUT";
@@ -113,7 +109,7 @@ void FileParser::create_nodes()
 				Components* component = Factory::FactoryMethod<int, Components>::create(componentId);
 				component->set_name(nodeName);
 				component->set_type(nodeType);
-				_components[i] = component;
+				_components.push_back(component);
 			}
 			else {
 				std::cout << "Componenttype not found" << std::endl;
@@ -126,7 +122,7 @@ void FileParser::create_nodes()
 
 Components* FileParser::get_component(std::string componentName)
 {
-	for (int i = 0; i < _nodes_size - 1; i++) {
+	for (int i = 0; i < _components.size(); i++) {
 		if (componentName == _components[i]->get_name()) {
 			return _components[i];
 		}
@@ -140,7 +136,6 @@ void FileParser::set_links(std::string links, std::string nodeName)
 {
 	std::vector<std::string> linkName = tokenizer(links, ',');
 
-	
 	for (int i = 0; i < linkName.size(); i++)
 	{
 		Components* component = get_component(nodeName);
@@ -168,15 +163,12 @@ void FileParser::create_links()
 			std::string nodeName = link[0];
 			std::string links    = link[1];
 
-			nodeName = remove_from_string(nodeName, ' ' );
-			nodeName = remove_from_string(nodeName, '\n');
-			links = remove_from_string(links, ' ' );
-			links = remove_from_string(links, '\n');
+			nodeName = clear_string(nodeName);
+			links	 = clear_string(links	);
 
 			set_links(links, nodeName);
 		}
 	}
-
 }
 
 void FileParser::set_nodes(std::string nodes)
@@ -204,8 +196,7 @@ void FileParser::display_nodes_and_links()
 
 void FileParser::print_outputs()
 {
-	
-	for (int i = 0; i < _nodes_size - 1; i++)
+	for (int i = 0; i < _components.size(); i++)
 	{
 		if (_components[i]->get_type() == "PROBE")
 			std::cout << "   Name: " << _components[i]->get_name() << " Output: " << _components[i]->_output << std::endl;
@@ -214,8 +205,7 @@ void FileParser::print_outputs()
 
 void FileParser::print_all()
 {
-
-	for (int i = 0; i < _nodes_size - 1; i++)
+	for (int i = 0; i < _components.size(); i++)
 	{
 		std::cout << "   Name: " << _components[i]->get_name() << " Output: " << _components[i]->_output << std::endl;
 	}
@@ -228,13 +218,13 @@ void FileParser::set_inputs()
 		Components* input_port = get_component(input.name);
 		input_port->set_input(input.value);
 	}
-	
 }
 
-
-std::string FileParser::remove_from_string(std::string str, char removeChar)
+std::string FileParser::clear_string(std::string str)
 {
-	str.erase(remove(str.begin(), str.end(), removeChar), str.end());
+	str.erase(remove(str.begin(), str.end(), ' ' ), str.end());
+	str.erase(remove(str.begin(), str.end(), '\n'), str.end());
+	str.erase(remove(str.begin(), str.end(), '\t'), str.end());
 
 	return str;
 }

@@ -20,8 +20,6 @@ Utils::~Utils()
 
 int Utils::get_component_id(string componentName)
 {
-   
-
     int id = _component_map[componentName];
 
     if (id >= 1 && id <= 8) {

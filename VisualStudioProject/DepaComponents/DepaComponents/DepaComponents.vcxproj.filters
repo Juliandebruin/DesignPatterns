@@ -65,6 +65,9 @@
     <Text Include="PdfExample.txt">
       <Filter>Source Files</Filter>
     </Text>
+    <Text Include="circuit2.txt">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileParser.h">

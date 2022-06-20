@@ -28,7 +28,7 @@ public:
 
 	Components* get_component(std::string componentName);
 
-	std::string remove_from_string(std::string, char removeChar);
+	std::string clear_string(std::string);
 	std::string tokens_to_string(int start, int end, std::vector<std::string> tokens);
 	std::vector<std::string> tokenizer(std::string tokenizeString, char tokenizeCharacter);
 
@@ -40,11 +40,10 @@ public:
 
 private:
 	Utils _utils;
-	int _nodes_size; 
-	Components** _components;
-	FileReader  _file_reader; /*< File reader object */
-	std::string _file_node_description; /*< Description of all nodes */
-	std::string _file_link_description; /*< Description of all links */
+	std::vector<Components*> _components; /*!< List of components */
+	FileReader  _file_reader;			  /*!< File reader object */
+	std::string _file_node_description;   /*!< Description of all nodes */
+	std::string _file_link_description;   /*!< Description of all links */
 
 	struct Input { string name; int value; } ;
 	std::vector<Input>* input_values;
