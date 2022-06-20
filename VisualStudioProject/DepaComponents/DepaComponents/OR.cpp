@@ -3,7 +3,7 @@
 
 OR OR::_instance("OR");
 
-OR::OR(OR* clonable)
+OR::OR()
 {
 }
 
@@ -31,5 +31,5 @@ void OR::PrintInfo()
 
 Components* OR::clone()
 {
-    return new OR(this);
+    return new OR;
 }

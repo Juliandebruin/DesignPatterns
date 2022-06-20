@@ -8,7 +8,7 @@ using namespace std;
 class Output : public Components
 {
 public:
-    Output(Output* clonable);
+    Output();
     Output(string componentName);
     virtual     ~Output();
 

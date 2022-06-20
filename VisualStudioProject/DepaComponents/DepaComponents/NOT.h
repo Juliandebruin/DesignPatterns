@@ -8,7 +8,7 @@ using namespace std;
 class NOT : public Components
 {
 public:
-    NOT(NOT* clonable);
+    NOT();
     NOT(string componentName);
     virtual     ~NOT();
 

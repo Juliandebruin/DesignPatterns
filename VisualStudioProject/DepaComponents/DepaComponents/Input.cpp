@@ -3,7 +3,7 @@
 
 Input Input::_instance("INPUT");
 
-Input::Input(Input* clonable)
+Input::Input()
 {
 }
 
@@ -29,5 +29,5 @@ void Input::PrintInfo()
 
 Components* Input::clone()
 {
-    return new Input(this);
+    return new Input;
 }

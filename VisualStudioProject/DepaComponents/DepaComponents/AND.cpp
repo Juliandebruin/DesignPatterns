@@ -3,7 +3,7 @@
 
 AND AND::_instance("AND");
 
-AND::AND(AND* clonable)
+AND::AND()
 {
 }
 
@@ -31,5 +31,5 @@ void AND::PrintInfo()
 
 Components* AND::clone()
 {
-    return new AND(this);
+    return new AND;
 }

@@ -8,7 +8,7 @@ using namespace std;
 class XOR : public Components
 {
 public:
-    XOR(XOR* clonable);
+    XOR();
     XOR(string componentName);
     virtual     ~XOR();
 

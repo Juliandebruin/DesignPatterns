@@ -3,7 +3,7 @@
 
 Output Output::_instance("PROBE");
 
-Output::Output(Output* clonable)
+Output::Output()
 {
 }
 
@@ -30,5 +30,5 @@ void Output::PrintInfo()
 
 Components* Output::clone()
 {
-    return new Output(this);
+    return new Output;
 }

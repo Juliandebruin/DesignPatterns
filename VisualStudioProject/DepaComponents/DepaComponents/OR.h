@@ -11,7 +11,7 @@ using namespace std;
 class OR : public Components
 {
 public:
-    OR(OR* clonable);
+    OR();
     OR(string componentName);
     virtual ~OR();
 

@@ -8,7 +8,7 @@ using namespace std;
 class NAND : public Components
 {
 public:
-    NAND(NAND* clonable);
+    NAND();
     NAND(string componentName);
     virtual     ~NAND();
 

@@ -3,7 +3,7 @@
 
 NOR NOR::_instance("NOR");
 
-NOR::NOR(NOR* clonable)
+NOR::NOR()
 {
 }
 
@@ -31,5 +31,5 @@ void NOR::PrintInfo()
 
 Components* NOR::clone()
 {
-    return new NOR(this);
+    return new NOR;
 }

@@ -8,7 +8,7 @@ using namespace std;
 class NOR : public Components
 {
 public:
-    NOR(NOR* clonable);
+    NOR();
     NOR(string componentName);
     virtual     ~NOR();
 

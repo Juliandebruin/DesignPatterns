@@ -141,9 +141,12 @@
   <ItemGroup>
     <ClCompile Include="AND.cpp" />
     <ClCompile Include="Components.cpp" />
+    <ClCompile Include="DutchLibrary.cpp" />
+    <ClCompile Include="EnglishLibrary.cpp" />
     <ClCompile Include="FileParser.cpp" />
     <ClCompile Include="FileReader.cpp" />
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="LanguageLibrary.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NAND.cpp" />
     <ClCompile Include="NOR.cpp" />
@@ -163,6 +166,8 @@
   <ItemGroup>
     <ClInclude Include="AND.h" />
     <ClInclude Include="Components.h" />
+    <ClInclude Include="DutchLibrary.h" />
+    <ClInclude Include="EnglishLibrary.h" />
     <ClInclude Include="ENLib.h" />
     <ClInclude Include="FactoryLangLib.h" />
     <ClInclude Include="FactoryMethod.h" />
@@ -172,6 +177,7 @@
     <ClInclude Include="Input.h" />
     <ClInclude Include="IObserver.h" />
     <ClInclude Include="LanguageLib.h" />
+    <ClInclude Include="LanguageLibrary.h" />
     <ClInclude Include="NAND.h" />
     <ClInclude Include="NLLib.h" />
     <ClInclude Include="NOR.h" />

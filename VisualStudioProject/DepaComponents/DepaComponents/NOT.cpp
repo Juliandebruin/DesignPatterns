@@ -3,7 +3,7 @@
 
 NOT NOT::_instance("NOT");
 
-NOT::NOT(NOT* clonable)
+NOT::NOT()
 {
 }
 
@@ -31,5 +31,5 @@ void NOT::PrintInfo()
 
 Components* NOT::clone()
 {
-    return new NOT(this);
+    return new NOT;
 }

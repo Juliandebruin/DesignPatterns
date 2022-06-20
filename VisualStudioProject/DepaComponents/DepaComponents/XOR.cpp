@@ -3,7 +3,7 @@
 
 XOR XOR::_instance("XOR");
 
-XOR::XOR(XOR* clonable)
+XOR::XOR()
 {
 }
 
@@ -31,5 +31,5 @@ void XOR::PrintInfo()
 
 Components* XOR::clone()
 {
-    return new XOR(this);
+    return new XOR;
 }

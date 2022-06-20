@@ -3,7 +3,7 @@
 
 NAND NAND::_instance("NAND");
 
-NAND::NAND(NAND* clonable)
+NAND::NAND()
 {
 }
 
@@ -31,5 +31,5 @@ void NAND::PrintInfo()
 
 Components* NAND::clone()
 {
-    return new NAND(this);
+    return new NAND;
 }

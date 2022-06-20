@@ -11,7 +11,7 @@ using namespace std;
 class AND : public Components
 {
 public:
-    AND(AND* clonable);
+    AND();
     AND(string componentName);
     virtual ~AND();
 

@@ -37,6 +37,12 @@
     <Filter Include="Source Files\Components\Observer">
       <UniqueIdentifier>{2a1b31cc-4327-47bc-9671-bc4d69c27cfe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\LanguageLibraries">
+      <UniqueIdentifier>{42ab17f4-1a1c-40e3-a69a-403b1b72d815}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\LanguageLibraries">
+      <UniqueIdentifier>{1afa399b-de29-4245-9913-a77ff1ff9a40}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -86,6 +92,15 @@
     </ClCompile>
     <ClCompile Include="TempInput.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DutchLibrary.cpp">
+      <Filter>Source Files\LanguageLibraries</Filter>
+    </ClCompile>
+    <ClCompile Include="EnglishLibrary.cpp">
+      <Filter>Source Files\LanguageLibraries</Filter>
+    </ClCompile>
+    <ClCompile Include="LanguageLibrary.cpp">
+      <Filter>Source Files\LanguageLibraries</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +177,15 @@
     </ClInclude>
     <ClInclude Include="TempInput.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LanguageLibrary.h">
+      <Filter>Header Files\LanguageLibraries</Filter>
+    </ClInclude>
+    <ClInclude Include="DutchLibrary.h">
+      <Filter>Header Files\LanguageLibraries</Filter>
+    </ClInclude>
+    <ClInclude Include="EnglishLibrary.h">
+      <Filter>Header Files\LanguageLibraries</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
