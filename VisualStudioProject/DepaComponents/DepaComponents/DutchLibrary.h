@@ -10,7 +10,7 @@ public:
 	virtual ~DutchLibrary();
 
 	std::string	get_text(std::string key) override;
-	LanguageLibrary* clone()				  override;
+	LanguageLibrary* clone()			  override;
 
 private:
 	static DutchLibrary _instance;

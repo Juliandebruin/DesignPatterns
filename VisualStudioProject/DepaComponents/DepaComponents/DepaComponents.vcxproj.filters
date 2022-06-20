@@ -28,9 +28,6 @@
     <Filter Include="Source Files\FileActions">
       <UniqueIdentifier>{3a2e3f28-ce3b-41a1-ad38-e1105545a9bc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\QuinnsFM">
-      <UniqueIdentifier>{8836e2c0-d36f-49f9-a496-5e2f09d1e98c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Components\Observer">
       <UniqueIdentifier>{b934a014-7803-471e-a70c-976e6b4fe56a}</UniqueIdentifier>
     </Filter>
@@ -150,18 +147,6 @@
     </ClInclude>
     <ClInclude Include="FileReader.h">
       <Filter>Header Files\FileActions</Filter>
-    </ClInclude>
-    <ClInclude Include="LanguageLib.h">
-      <Filter>Header Files\QuinnsFM</Filter>
-    </ClInclude>
-    <ClInclude Include="NLLib.h">
-      <Filter>Header Files\QuinnsFM</Filter>
-    </ClInclude>
-    <ClInclude Include="FactoryLangLib.h">
-      <Filter>Header Files\QuinnsFM</Filter>
-    </ClInclude>
-    <ClInclude Include="ENLib.h">
-      <Filter>Header Files\QuinnsFM</Filter>
     </ClInclude>
     <ClInclude Include="Components.h">
       <Filter>Header Files\Components\Observer</Filter>
