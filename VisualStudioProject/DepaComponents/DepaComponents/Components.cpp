@@ -9,10 +9,10 @@ Components::Components() :
 {
 }
 
-Components::Components(int id) :
+Components::Components(string componentName) :
     _name("")
 {
-    Factory::FactoryMethod<int, Components>::assign(id, this);
+    FactoryMethod<std::string, Components>::assign(componentName, this);
 }
 
 Components::~Components()

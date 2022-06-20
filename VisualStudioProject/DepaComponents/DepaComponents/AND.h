@@ -1,7 +1,5 @@
 #pragma once
 
-#include <iostream>
-#include <list>
 #include <string>
 #include "Components.h"
 
@@ -13,20 +11,10 @@ using namespace std;
 class AND : public Components
 {
 public:
-    /**
-     * @brief Construct a new AND object
-     */
-    AND();
-    /**
-     * @brief Construct a new and object
-     *
-     * @param id id of component
-     */
-    AND(int);
-    /**
-    * @brief Destroy the and object
-    */
+    AND(AND* clonable);
+    AND(string componentName);
     virtual ~AND();
+
     /**
     * @brief calculate new output and update other components
     * 
@@ -37,11 +25,12 @@ public:
     /**
     * @brief show info of component
     */
-    void PrintInfo();
+    void PrintInfo() override;
     /**
     * @brief get copy of component
     */
-    Components* clone() const  override;
+    Components* clone() override;
+
 private:
-    static AND m_cInstance;/*< instance of and */
+    static AND _instance; /*< instance of and */
 };

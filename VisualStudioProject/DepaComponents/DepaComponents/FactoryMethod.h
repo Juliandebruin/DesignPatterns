@@ -1,30 +1,21 @@
 #pragma once
-
+#include <string>
 #include <map>
-#include <assert.h>
 
-namespace Factory
+class Component;
+
+template<class TID, class TClass>
+class FactoryMethod
 {
-    template <typename ID, typename Class>
-    class FactoryMethod
-    {
-    private:
-        FactoryMethod() = default;
-        virtual            ~FactoryMethod() = default;
+public:
+	FactoryMethod();
+	virtual ~FactoryMethod();
 
-    private:
-        static  void        assign(const ID&, const Class*);
-    public:
-        static  Class* create(const ID&);
+	static void assign(TID id, TClass* instance);
+	static TClass* create(TID id);
 
-    private:
-        typedef std::map<ID, const Class*> FactoryMap;
-
-        static  FactoryMap& getMap();
-
-    private:
-        friend Class;
-    };
+private:
+	static std::map<TID, TClass*>& get_dictorionary();
+};
 
 #include "FactoryMethod.hpp"
-}

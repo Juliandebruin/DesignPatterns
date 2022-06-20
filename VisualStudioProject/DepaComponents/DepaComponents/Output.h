@@ -1,22 +1,21 @@
-#include <iostream>
-#include <list>
+#pragma once
+
 #include <string>
 #include "Components.h"
 
 using namespace std;
 
-
 class Output : public Components
 {
 public:
-    Output();
-    Output(int);
-    virtual ~Output();
+    Output(Output* clonable);
+    Output(string componentName);
+    virtual     ~Output();
 
-    void Update(bool output, int index) override;
-    void PrintInfo();
-    Components* clone() const  override;
+    void        Update(bool output, int index) override;
+    void        PrintInfo()                    override;
+    Components* clone()                        override;
 
 private:
-    static Output m_cInstance;
+    static Output _instance;
 };

@@ -13,7 +13,7 @@ public:
 	 * 
 	 * @param fileName fileName of file to open
 	 */
-	FileReader( std::string fileName );
+	FileReader(std::string fileName);
 	/**
 	 * @brief Destroy the File Reader object
 	 */

@@ -9,9 +9,9 @@ public:
 	virtual ~UserInterface();
 
 	void start_interface();
-private:
-	void load_file(string);
 	void change_input(string name, bool value);
-	FileParser* fParser = nullptr;
+
+private:
+	FileParser _file_parser;
 };
 

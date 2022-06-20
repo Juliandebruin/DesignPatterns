@@ -1,59 +1,46 @@
 #pragma once
+#include "Components.h"
+
 #include <string>
 #include <vector>
-#include <list>
 
-#include "Utils.h"
-#include "Components.h"
-#include "FileReader.h"
-
-/**
- * @brief Class parse information string to list of components
- */
 class FileParser
 {
 public:
-	FileParser(std::string fileName);
+	FileParser();
 	virtual ~FileParser();
 
-	void parse_nodes_and_links();
+	// ! Speciale pijl classen diagram voor FileReader
+	void parse_file(std::string fileName);
 
+	void split_file();
 	void create_nodes();
 	void create_links();
 
-	void set_nodes(std::string nodes);
-	void set_links(std::string links);
-
 	void set_links(std::string links, std::string nodeName);
-
-	Components* get_component(std::string componentName);
-
 	std::string clear_string(std::string);
+	
+	Components* get_component(std::string componentName);
+	
 	std::string tokens_to_string(int start, int end, std::vector<std::string> tokens);
 	std::vector<std::string> tokenizer(std::string tokenizeString, char tokenizeCharacter);
 
 	bool check_for_description_end(std::vector<std::string> tokens, int position);
 	void display_nodes_and_links();
+
+	// TODO: Quinn dit moet ook weg
 	void print_all();
 	void set_inputs();
 	void print_outputs();
 
 private:
-	Utils _utils;
-	std::vector<Components*> _components; /*!< List of components */
-	FileReader  _file_reader;			  /*!< File reader object */
+	std::string _file_string;			  /*!< File saved as string		*/
+	std::vector<Components*> _components; /*!< List of components		*/
 	std::string _file_node_description;   /*!< Description of all nodes */
 	std::string _file_link_description;   /*!< Description of all links */
 
-	struct Input { string name; int value; } ;
+	// TODO: Quinn dit moet dus ook weg
+	struct Input { string name; int value; };
 	std::vector<Input>* input_values;
 };
-
-/**
-	 * @brief Tokenize a string with a character
-	 *
-	 * @param tokenizeString String which will be tokenized
-	 * @param tokenizeCharacter Character used to tokenize the tokenizeString
-	 * @return std::vector<std::string> Returns a vector containing a list strings tokenized according to the tokenizeCharacter
-	 */
 

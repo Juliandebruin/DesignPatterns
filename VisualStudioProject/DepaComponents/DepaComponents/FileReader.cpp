@@ -1,9 +1,9 @@
 #include "FileReader.h"
 
 FileReader::FileReader(std::string fileName):
+    _file(std::ifstream(fileName)),
     _file_name(fileName),
-    _file_content(""),
-    _file(std::ifstream(fileName))
+    _file_content("")
 {
 }
 

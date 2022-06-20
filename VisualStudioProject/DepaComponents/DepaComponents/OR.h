@@ -1,5 +1,5 @@
-#include <iostream>
-#include <list>
+#pragma once
+
 #include <string>
 #include "Components.h"
 
@@ -11,20 +11,10 @@ using namespace std;
 class OR : public Components
 {
 public:
-    /**
-     * @brief Construct a new or object
-     */
-    OR();
-    /**
-     * @brief Construct a new and object
-     *
-     * @param id id of component
-     */
-    OR(int);
-    /**
-    * @brief Destroy the and object
-    */
+    OR(OR* clonable);
+    OR(string componentName);
     virtual ~OR();
+
     /**
     * @brief calculate new output and update other components
     *
@@ -35,12 +25,12 @@ public:
     /**
     * @brief show info of component
     */
-    void PrintInfo();
+    void PrintInfo() override;
     /**
     * @brief get copy of component
     */
-    Components* clone() const  override;
+    Components* clone() override;
 
 private:
-    static OR m_cInstance;/*< instance of or */
+    static OR _instance;/*< instance of or */
 };

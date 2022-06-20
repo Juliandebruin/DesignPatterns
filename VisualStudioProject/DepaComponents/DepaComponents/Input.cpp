@@ -1,22 +1,15 @@
-#pragma once
 #include "Input.h"
-
-
 #include <iostream>
 
-Input Input::m_cInstance(1);
+Input Input::_instance("INPUT");
 
-Input::Input()
+Input::Input(Input* clonable)
 {
 }
 
-Input::Input(int id) : Components(id){
-}
-
-
-Components* Input::clone() const
+Input::Input(string componentName) :
+    Components(componentName)
 {
-    return new Input;
 }
 
 Input::~Input()
@@ -27,10 +20,14 @@ void Input::Update(bool output, int index)
 {
     _input[index] = output;
     _output = _input;
-    //PrintInfo();
     Notify();
 }
 
 void Input::PrintInfo()
 {
+}
+
+Components* Input::clone()
+{
+    return new Input(this);
 }

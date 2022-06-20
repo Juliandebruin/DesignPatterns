@@ -1,19 +1,15 @@
+#include "FactoryLangLib.h"
 #include "UserInterface.h"
+#include "FileParser.h"
+#include "Components.h"
 
 #include <iostream>
 #include <string>
-#include <list>
-
-#include "FileParser.h"
-#include "Components.h"
-#include "FactoryMethod.h"
-#include "UserInterface.h"
-
-#include "FactoryLangLib.h"
 
 using namespace std;
 
-UserInterface::UserInterface()
+UserInterface::UserInterface():
+	_file_parser()
 {
 }
 
@@ -25,6 +21,7 @@ void UserInterface::start_interface()
 {
 	cout << "Welcome, Welkom " << endl;
 	cout << "Enter your language (en), Voer je taal in(nl): ";
+
 	string language;
 	cin >> language;
 
@@ -32,8 +29,9 @@ void UserInterface::start_interface()
 	LanguageLib* text = factorylib->CreatePrototype(language);
 
 	cout << text->get_text(0) << endl;
-	cout << "#";
+	cout << "# ";
 	string input;
+
 	while (cin >> input) {
 		if (input == text->get_text(1)) {
 			cout << text->get_text(2) << endl;
@@ -45,8 +43,7 @@ void UserInterface::start_interface()
 			string input_path = "";
 			cout << text->get_text(4);
 			cin >> input_path;
-			//input_path = "circuit2.txt"; 
-			load_file(input_path);
+			_file_parser.parse_file(input_path);
 		}
 		else if (input == "2") {
 			string component = "";
@@ -58,28 +55,15 @@ void UserInterface::start_interface()
 			change_input(component, value);
 		}
 		else if (input == "3") {
-			fParser->print_all();
+			_file_parser.print_all();
 		}
-		cout << "#";
+		cout << "# ";
 	}
-	
-}
-
-void UserInterface::load_file(string input_path)
-{
-	fParser= new FileParser(input_path);
-	
-	fParser->parse_nodes_and_links();
-	fParser->create_nodes();
-	fParser->create_links();
-
-	fParser->set_inputs();
-	fParser->print_outputs();
 }
 
 void UserInterface::change_input(string name, bool value)
 {
-	Components* com = fParser->get_component(name);
+	Components* com = _file_parser.get_component(name);
 	com->set_input(value);
-	fParser->print_outputs();
+	_file_parser.print_outputs();
 }

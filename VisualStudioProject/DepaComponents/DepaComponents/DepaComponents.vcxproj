@@ -152,7 +152,6 @@
     <ClCompile Include="Output.cpp" />
     <ClCompile Include="Subject.cpp" />
     <ClCompile Include="UserInterface.cpp" />
-    <ClCompile Include="Utils.cpp" />
     <ClCompile Include="XOR.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -179,7 +178,6 @@
     <ClInclude Include="Output.h" />
     <ClInclude Include="Subject.h" />
     <ClInclude Include="UserInterface.h" />
-    <ClInclude Include="Utils.h" />
     <ClInclude Include="XOR.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,10 +1,6 @@
 #pragma once
 
-#include <iostream>
-#include <list>
 #include <string>
-
-
 #include "Components.h"
 
 using namespace std;
@@ -12,16 +8,14 @@ using namespace std;
 class NAND : public Components
 {
 public:
-    NAND();
-    NAND(int);
-    virtual ~NAND();
+    NAND(NAND* clonable);
+    NAND(string componentName);
+    virtual     ~NAND();
 
-    void Update(bool output, int index) override;
-    void PrintInfo();
-
-    Components* clone() const  override;
+    void        Update(bool output, int index) override;
+    void        PrintInfo()                    override;
+    Components* clone()                        override;
 
 private:
-    static NAND m_cInstance;
+    static NAND _instance;
 };
-

@@ -1,34 +1,38 @@
+#include "FactoryMethod.h"
 #pragma once
 
-using namespace Factory;
-template <typename ID, typename Class>
-void
-FactoryMethod<ID, Class>::assign(const ID& cID, const Class* pClass)
+template<class TID, class TClass>
+inline FactoryMethod<TID, TClass>::FactoryMethod()
 {
-    static  FactoryMap& cMap = getMap();
-
-    assert(cMap.find(cID) == cMap.end());
-
-    cMap[cID] = pClass;
 }
 
-template <typename ID, typename Class>
-Class*
-FactoryMethod<ID, Class>::create(const ID& cID)
+template<class TID, class TClass>
+inline FactoryMethod<TID, TClass>::~FactoryMethod()
 {
-    static  FactoryMap& cMap = getMap();
-    typename FactoryMap::iterator   iFind = cMap.find(cID);
-
-    if (iFind == cMap.end())
-        return nullptr;
-    else
-        return iFind->second->clone();
 }
 
-template <typename ID, typename Class>
-typename FactoryMethod<ID, Class>::FactoryMap&
-FactoryMethod<ID, Class>::getMap()
+template<class TID, class TClass>
+inline void FactoryMethod<TID, TClass>::assign(TID id, TClass* instance)
 {
-    static  FactoryMap  cMap;
-    return cMap;
+	if (get_dictorionary().find(id) == get_dictorionary().end()) {
+		get_dictorionary().insert({ id, instance });
+	}
+}
+
+template<class TID, class TClass>
+inline TClass* FactoryMethod<TID, TClass>::create(TID id)
+{
+	if (get_dictorionary().find(id) != get_dictorionary().end()) {
+		return get_dictorionary().find(id)->second->clone();
+	}
+	else {
+		return nullptr;
+	}
+}
+
+template<class TID, class TClass>
+inline std::map<TID, TClass*>& FactoryMethod<TID, TClass>::get_dictorionary()
+{
+	static std::map<TID, TClass*> _dictionairy;
+	return _dictionairy;
 }

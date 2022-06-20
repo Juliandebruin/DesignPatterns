@@ -19,10 +19,11 @@ void Subject::Detach(IObserver* observer)
 
 void Subject::Notify()
 {
-    iterator = _list_observer.begin();
     int i = 0;
-    std::vector<thread*> vec;
     thread* t = nullptr;
+    std::vector<thread*> vec;
+    iterator = _list_observer.begin();
+
     while (iterator != _list_observer.end()) {
         id = _ids.at(i);
         t= new thread([this] {(*iterator)->Update(_output, id); });

@@ -13,125 +13,143 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Components">
+      <UniqueIdentifier>{a6b7a42e-b97d-4b8a-9475-998878c90b35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\FileActions">
+      <UniqueIdentifier>{8f59e2bd-8a88-4c73-bfda-5793705c7f83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\InputFiles">
+      <UniqueIdentifier>{6ac035a0-e273-439a-a93a-f043b4cf5e20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components">
+      <UniqueIdentifier>{95af50ca-3f55-4acd-b811-c618e7379a9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\FileActions">
+      <UniqueIdentifier>{3a2e3f28-ce3b-41a1-ad38-e1105545a9bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\QuinnsFM">
+      <UniqueIdentifier>{8836e2c0-d36f-49f9-a496-5e2f09d1e98c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components\Observer">
+      <UniqueIdentifier>{b934a014-7803-471e-a70c-976e6b4fe56a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\Observer">
+      <UniqueIdentifier>{2a1b31cc-4327-47bc-9671-bc4d69c27cfe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FileParser.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FileReader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AND.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Components.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Input.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="NAND.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="NOR.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="NOT.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OR.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Output.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Subject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="XOR.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Utils.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="UserInterface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AND.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="NAND.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="NOR.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="NOT.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="OR.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Output.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="XOR.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="FileReader.cpp">
+      <Filter>Source Files\FileActions</Filter>
+    </ClCompile>
+    <ClCompile Include="FileParser.cpp">
+      <Filter>Source Files\FileActions</Filter>
+    </ClCompile>
+    <ClCompile Include="Components.cpp">
+      <Filter>Source Files\Components\Observer</Filter>
+    </ClCompile>
+    <ClCompile Include="Subject.cpp">
+      <Filter>Source Files\Components\Observer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="PdfExample.txt">
-      <Filter>Source Files</Filter>
-    </Text>
     <Text Include="circuit2.txt">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\InputFiles</Filter>
+    </Text>
+    <Text Include="PdfExample.txt">
+      <Filter>Source Files\InputFiles</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FileParser.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FileReader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AND.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Components.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="FactoryMethod.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FactoryMethod.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Input.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="IObserver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="NAND.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="NOR.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="NOT.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="OR.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Output.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Subject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="XOR.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Utils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="UserInterface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LanguageLib.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="AND.h">
+      <Filter>Header Files\Components</Filter>
     </ClInclude>
-    <ClInclude Include="ENLib.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Input.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="NAND.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="NOR.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="NOT.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="OR.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="XOR.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Output.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="FileParser.h">
+      <Filter>Header Files\FileActions</Filter>
+    </ClInclude>
+    <ClInclude Include="FileReader.h">
+      <Filter>Header Files\FileActions</Filter>
+    </ClInclude>
+    <ClInclude Include="LanguageLib.h">
+      <Filter>Header Files\QuinnsFM</Filter>
     </ClInclude>
     <ClInclude Include="NLLib.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\QuinnsFM</Filter>
     </ClInclude>
     <ClInclude Include="FactoryLangLib.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\QuinnsFM</Filter>
+    </ClInclude>
+    <ClInclude Include="ENLib.h">
+      <Filter>Header Files\QuinnsFM</Filter>
+    </ClInclude>
+    <ClInclude Include="Components.h">
+      <Filter>Header Files\Components\Observer</Filter>
+    </ClInclude>
+    <ClInclude Include="IObserver.h">
+      <Filter>Header Files\Components\Observer</Filter>
+    </ClInclude>
+    <ClInclude Include="Subject.h">
+      <Filter>Header Files\Components\Observer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

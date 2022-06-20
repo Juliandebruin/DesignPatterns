@@ -1,14 +1,13 @@
 #include "FactoryMethod.h"
+#include "FileReader.h"
 #include "FileParser.h"
 #include <iostream>
 #include <sstream>
 #include <list>
 
-using namespace std;
-
-FileParser::FileParser(std::string fileName):
+FileParser::FileParser():
 	_components{},
-	_file_reader(fileName),
+	_file_string(""),
 	_file_node_description(""),
 	_file_link_description("")
 {
@@ -18,25 +17,26 @@ FileParser::~FileParser()
 {
 }
 
-bool FileParser::check_for_description_end(std::vector<std::string> tokens, int position)
+void FileParser::parse_file(std::string fileName)
 {
-	if (tokens.size() > position + 1)
-	{
-		if ((tokens[position].find('#') == -1) && (tokens[position + 1].find('#') != -1))
-		{
-			return true;
-		}
-	}
-		
-	return false;
+	FileReader fileReader(fileName);
+	_file_string = fileReader.get_file_content();
+
+	split_file();
+	create_nodes();
+	create_links();
+
+	// TODO: Quinn moet ergens anders
+	set_inputs();
+	print_outputs();
 }
 
-void FileParser::parse_nodes_and_links()
+void FileParser::split_file()
 {
 	bool nodesDesc = false;
 	bool delayCheck = false;
 
-	std::vector<std::string> tokens = tokenizer(_file_reader.get_file_content(), '\n');
+	std::vector<std::string> tokens = tokenizer(_file_string, '\n');
 
 	for (int i = 0; i < tokens.size(); i++)
 	{
@@ -89,6 +89,7 @@ void FileParser::create_nodes()
 			nodeName = clear_string(nodeName);
 			nodeType = clear_string(nodeType);
 
+			// TODO: Quinn dit moet weg
 			if (nodeType == "INPUT_HIGH") {
 				nodeType = "INPUT";
 				Input input;
@@ -96,26 +97,21 @@ void FileParser::create_nodes()
 				input.value = 1;
 				input_values->push_back(input);
 
-			} else if( nodeType == "INPUT_LOW") {
+			} else if ( nodeType == "INPUT_LOW") {
 				nodeType = "INPUT";
 				Input input;
 				input.name = nodeName;
 				input.value = 0;
 				input_values->push_back(input);
 			}
-			int componentId = _utils.get_component_id(nodeType);
 
-			if (componentId != -1) {
-				Components* component = Factory::FactoryMethod<int, Components>::create(componentId);
+			Components* component = FactoryMethod<std::string, Components>::create(nodeType);
+			
+			if (component != nullptr) {
 				component->set_name(nodeName);
 				component->set_type(nodeType);
 				_components.push_back(component);
 			}
-			else {
-				std::cout << "Componenttype not found" << std::endl;
-			}			
-
-			//std::cout << "Nodename: " << nodeName << " Nodetype: " << nodeType << std::endl;
 		}
 	}
 }
@@ -131,7 +127,6 @@ Components* FileParser::get_component(std::string componentName)
 	return nullptr;
 }
 
-
 void FileParser::set_links(std::string links, std::string nodeName)
 {
 	std::vector<std::string> linkName = tokenizer(links, ',');
@@ -144,7 +139,7 @@ void FileParser::set_links(std::string links, std::string nodeName)
 		if (component != nullptr && link != nullptr) {
 			component->set_list(*link);
 		}
-		else {
+		else if (link == nullptr) {
 			std::cout << "Component name can not be found in _components" << std::endl;
 		}
 	}
@@ -171,14 +166,15 @@ void FileParser::create_links()
 	}
 }
 
-void FileParser::set_nodes(std::string nodes)
+bool FileParser::check_for_description_end(std::vector<std::string> tokens, int position)
 {
-	_file_node_description = nodes;
-}
+	if (tokens.size() > position + 1) {
+		if ((tokens[position].find('#') == -1) && (tokens[position + 1].find('#') != -1)) {
+			return true;
+		}
+	}
 
-void FileParser::set_links(std::string links)
-{
-	_file_link_description = links;
+	return false;
 }
 
 void FileParser::display_nodes_and_links()

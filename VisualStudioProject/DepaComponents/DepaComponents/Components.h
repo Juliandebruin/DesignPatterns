@@ -14,20 +14,21 @@ class Components : public IObserver, public Subject
 {
 protected:
     Components();
-    Components(int id);
+    Components(string componentName);
 
 public:
-    virtual        ~Components();
+    virtual ~Components();
 
-    virtual void PrintInfo() = 0;
-    virtual Components* clone() const = 0;
+    virtual void        PrintInfo() = 0;
+    virtual Components* clone()     = 0;
+
     virtual void set_list(Components& subject);
     void RemoveMeFromTheList();
 
-    void set_name(string name);
+    void   set_name(string name);
     string get_name();
     string get_type();
-    void set_type(string);
+    void   set_type(string);
     
 public:
     Subject& subject_ = *this;
@@ -35,7 +36,6 @@ public:
     bool output = 0;
     string _name;
     string _type;
-
 
     int propegation_delay_ms = 1;
 };

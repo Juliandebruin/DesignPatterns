@@ -1,24 +1,25 @@
-#pragma once
-
 #include "OR.h"
 #include <iostream>
 
-OR OR::m_cInstance(4);
+OR OR::_instance("OR");
 
-OR::OR()
+OR::OR(OR* clonable)
 {
 }
 
-OR::OR(int id) : Components(id)
+OR::OR(string componentName): 
+    Components(componentName)
 {
 }
 
+OR::~OR()
+{
+}
 
 void OR::Update(bool output, int index)
 {
     _input[index] = output;
     _output = (_input[0] + _input[1]) ;
-    //PrintInfo();
     Sleep(propegation_delay_ms);
     Notify();
 }
@@ -28,11 +29,7 @@ void OR::PrintInfo()
     std::cout << "Observer OR updated\n";
 }
 
-Components* OR::clone() const
+Components* OR::clone()
 {
-    return new OR;
-}
-
-OR::~OR()
-{
+    return new OR(this);
 }
