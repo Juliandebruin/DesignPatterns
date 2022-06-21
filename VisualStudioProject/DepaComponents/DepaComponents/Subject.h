@@ -10,15 +10,15 @@ class IObserver;
 class Subject 
 {
 public:
-    void Attach(IObserver* observer, int index);
-    void Detach(IObserver* observer);
-    void Notify();
-    void CreateMessage(std::string message = "Empty");
-    void HowManyObserver();
+    void attach(IObserver* observer, int index);
+    void detach(IObserver* observer);
+    void notify();
+    void create_massage(std::string message = "Empty");
+    void how_many_observers();
     void set_input(bool value);
 
     bool _output = 0;
-    std::list<IObserver*> _list_observer;
+    std::vector<IObserver*> _list_observer;
 
 private:
     std::string _message;
@@ -26,9 +26,11 @@ private:
 
 protected:
     int id;
+    int index_update;
     int _number_of_listeners;
 
     std::list<IObserver*>::iterator iterator;
     bool _input[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
+
 };
 

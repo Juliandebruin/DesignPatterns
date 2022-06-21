@@ -34,6 +34,8 @@ void UserInterface::start_interface()
 	cout << "# ";
 	string input;
 
+	_process = new Process();
+
 	while (0==0) {
 		cin >> input;
 		if (input == libary->get_text("help_word")) {
@@ -43,11 +45,12 @@ void UserInterface::start_interface()
 			break;
 		}
 		else if (input == "1") {
+			_process = new Process();
 			string input_path = "";
 			cout << libary->get_text("path_text");
 			cin >> input_path;
-			input_path = "circuit2.txt";
-			_process.execute_process(input_path);
+			//input_path = "circuit2.txt";
+			_process->execute_process(input_path);
 		}
 		else if (input == "2") {
 			string component = "";
@@ -57,12 +60,12 @@ void UserInterface::start_interface()
 			cout << libary->get_text("new_value_text");
 			cin >> value_port;
 			if (value_port == "1") 
-				_process.change_input(component, 1);
+				_process->change_input(component, 1);
 			else
-				_process.change_input(component, 0);
+				_process->change_input(component, 0);
 		}
 		else if (input == "3") {
-			_process.print_all();
+			_process->print_all();
 		}
 
 		cout << "# ";

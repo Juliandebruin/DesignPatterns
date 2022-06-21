@@ -16,12 +16,12 @@ NOT::~NOT()
 {
 }
 
-void NOT::Update(bool output, int index)
+void NOT::update(bool output, int index)
 {
     _input[index] = output;
     _output = 1 - _input[0];
     Sleep(propegation_delay_ms);
-    Notify();
+    notify();
 }
 
 void NOT::PrintInfo()

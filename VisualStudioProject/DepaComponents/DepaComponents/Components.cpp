@@ -21,13 +21,13 @@ Components::~Components()
 
 void Components::set_list(Components& subject)
 {
-    this->Attach(&subject, subject._number_of_listeners);
+    this->attach(&subject, subject._number_of_listeners);
     subject._number_of_listeners++;
 }
 
 void Components::RemoveMeFromTheList()
 {
-    subject_.Detach(this);
+    subject_.detach(this);
 }
 
 void Components::set_name(string name)

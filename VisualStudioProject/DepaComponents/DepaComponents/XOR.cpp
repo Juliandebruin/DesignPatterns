@@ -16,12 +16,12 @@ XOR::~XOR()
 {
 }
 
-void XOR::Update(bool output, int index)
+void XOR::update(bool output, int index)
 {
     _input[index] = output;
     _output = _input[0] * _input[1];
     Sleep(propegation_delay_ms);
-    Notify();
+    notify();
 }
 
 void XOR::PrintInfo()

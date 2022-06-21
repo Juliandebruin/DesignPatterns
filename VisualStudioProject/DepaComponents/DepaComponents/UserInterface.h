@@ -11,6 +11,6 @@ public:
 	void start_interface();
 
 private:
-	Process _process;
+	Process* _process;
 };
 

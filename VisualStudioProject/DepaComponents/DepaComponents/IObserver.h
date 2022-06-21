@@ -3,5 +3,5 @@
 class IObserver
 {
 public:
-    virtual void Update(bool output, int index) = 0;  
+    virtual void update(bool output, int index) = 0;  
 };

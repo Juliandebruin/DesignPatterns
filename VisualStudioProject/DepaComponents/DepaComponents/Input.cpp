@@ -16,11 +16,11 @@ Input::~Input()
 {
 }
 
-void Input::Update(bool output, int index)
+void Input::update(bool output, int index)
 {
     _input[index] = output;
     _output = _input;
-    Notify();
+    notify();
 }
 
 void Input::PrintInfo()

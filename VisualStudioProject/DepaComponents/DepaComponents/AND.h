@@ -21,7 +21,7 @@ public:
     * @param output value of connected component
     * @param index input port number
     */
-    void Update(bool output, int index) override;
+    void update(bool output, int index) override;
     /**
     * @brief show info of component
     */

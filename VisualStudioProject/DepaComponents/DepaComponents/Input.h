@@ -12,7 +12,7 @@ public:
     Input(string componentName);
     virtual     ~Input();
 
-    void        Update(bool output, int index) override;
+    void        update(bool output, int index) override;
     void        PrintInfo()                    override;
     Components* clone()                        override;
 

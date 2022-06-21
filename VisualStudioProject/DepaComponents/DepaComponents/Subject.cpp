@@ -6,43 +6,44 @@
 #include <iostream>
 
 
-void Subject::Attach(IObserver* observer, int index)
+void Subject::attach(IObserver* observer, int index)
 {
     _ids.push_back(index);
     _list_observer.push_back(observer);
 }
 
-void Subject::Detach(IObserver* observer)
+void Subject::detach(IObserver* observer)
 {
-    _list_observer.remove(observer);
+    //_list_observer.remove(observer);
 }
 
-void Subject::Notify()
+void Subject::notify()
 {
     int i = 0;
     thread* t = nullptr;
     std::vector<thread*> vec;
-    iterator = _list_observer.begin();
 
-    while (iterator != _list_observer.end()) {
+    for (int i = 0; i < _list_observer.size(); i++)
+    {
         id = _ids.at(i);
-        t= new thread([this] {(*iterator)->Update(_output, id); });
-        t->join();
+        index_update = i;
+        t= new thread([this] {_list_observer.at(index_update)->update(_output, id); });
         vec.push_back(t);
-        //(*iterator)->Update(_output, *it1);
-        ++iterator;
-        i++;
     }
    
+    for (int i = 0; i < _list_observer.size(); i++)
+    {
+        vec.at(i)->join();
+    }
 }
 
-void Subject::CreateMessage(std::string message)
+void Subject::create_massage(std::string message)
 {
     this->_message = message;
-    Notify();
+    notify();
 }
 
-void Subject::HowManyObserver()
+void Subject::how_many_observers()
 {
     std::cout << "There are " << _list_observer.size() << " observers in the list.\n";
 }
@@ -50,5 +51,5 @@ void Subject::HowManyObserver()
 void Subject::set_input(bool value)
 {
     _output = value;
-    Notify();
+    notify();
 }
