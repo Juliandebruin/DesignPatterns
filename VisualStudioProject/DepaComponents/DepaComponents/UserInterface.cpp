@@ -17,10 +17,12 @@ UserInterface::UserInterface():
 
 UserInterface::~UserInterface()
 {
+	delete _process;
 }
 
 void UserInterface::start_interface()
 {
+	
 	LanguageLibrary* libary = nullptr;
 	string language;
 	while (libary == nullptr) {
@@ -29,13 +31,14 @@ void UserInterface::start_interface()
 		cin >> language;
 		libary = FactoryMethod<std::string, LanguageLibrary>::create(language);
 	}
-
+	
+	
 	cout << libary->get_text("explenation") << endl;
 	cout << "# ";
 	string input;
 
 	_process = new Process();
-
+	
 	while (0==0) {
 		cin >> input;
 		if (input == libary->get_text("help_word")) {
@@ -45,11 +48,12 @@ void UserInterface::start_interface()
 			break;
 		}
 		else if (input == "1") {
+			delete _process;
 			_process = new Process();
 			string input_path = "";
 			cout << libary->get_text("path_text");
 			cin >> input_path;
-			//input_path = "circuit2.txt";
+			// = "Pdfexample.txt";
 			_process->execute_process(input_path);
 		}
 		else if (input == "2") {
@@ -70,4 +74,7 @@ void UserInterface::start_interface()
 
 		cout << "# ";
 	}
+
+	delete (libary);
+	
 }

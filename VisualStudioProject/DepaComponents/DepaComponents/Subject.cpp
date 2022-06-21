@@ -34,7 +34,9 @@ void Subject::notify()
     for (int i = 0; i < _list_observer.size(); i++)
     {
         vec.at(i)->join();
+        delete  vec.at(i);
     }
+
 }
 
 void Subject::create_massage(std::string message)

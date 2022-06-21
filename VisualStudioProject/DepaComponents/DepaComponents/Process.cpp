@@ -8,6 +8,14 @@ Process::Process() :
 
 Process::~Process()
 {
+	for (int i = 0; i < _temp_inputs.size(); i++)
+	{
+		delete _temp_inputs[i];
+	}
+	for (int i = 0; i < _components.size(); i++)
+	{
+		delete _components[i];
+	}
 }
 
 void Process::execute_process(std::string filePath)

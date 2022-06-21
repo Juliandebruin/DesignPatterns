@@ -107,7 +107,7 @@ void FileParser::create_nodes()
 	for (int i = 0; i < nodes.size(); i++)
 	{
 		std::vector<std::string> node = tokenizer(nodes[i], ':');
-
+		
 		if (node.size() == 2)
 		{
 			std::string nodeName = node[0];
@@ -117,6 +117,7 @@ void FileParser::create_nodes()
 			nodeType = clear_string(nodeType);
 			nodeType = set_temp_inputs(nodeName, nodeType);
 
+			
 			Components* component = FactoryMethod<std::string, Components>::create(nodeType);
 			
 			if (component != nullptr) {

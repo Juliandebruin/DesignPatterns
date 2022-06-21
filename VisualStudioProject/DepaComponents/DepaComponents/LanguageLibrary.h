@@ -3,7 +3,7 @@
 
 class LanguageLibrary
 {
-protected:
+public:
 	LanguageLibrary();
 	LanguageLibrary(std::string libaryName);
 	virtual ~LanguageLibrary();

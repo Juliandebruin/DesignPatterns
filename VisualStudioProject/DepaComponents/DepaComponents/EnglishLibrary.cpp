@@ -23,6 +23,7 @@ EnglishLibrary::EnglishLibrary(std::string libaryName) :
 
 EnglishLibrary::~EnglishLibrary()
 {
+   
 }
 
 std::string EnglishLibrary::get_text(std::string key)
