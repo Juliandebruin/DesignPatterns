@@ -16,6 +16,7 @@ public:
 
 	std::vector<TempInput*>	 get_inputs();
 	std::vector<Components*> get_components();
+	int get_index(vector<vector<string>> v, string K);
 	int get_index(vector<string> v, string K);
 
 private:
@@ -36,11 +37,11 @@ private:
 
 
 private:
-	std::vector<TempInput*> _temp_inputs; /*!< List of temp_inputs		*/
-	std::vector<Components*> _components; /*!< List of components		*/
+	vector<TempInput*> _temp_inputs; /*!< List of temp_inputs		*/
+	vector<Components*> _components; /*!< List of components		*/
 
-	std::string _file_string;			  /*!< File saved as string		*/
-	std::string _file_node_description;   /*!< Description of all nodes */
-	std::string _file_link_description;   /*!< Description of all links */
+	string _file_string;			  /*!< File saved as string		*/
+	string _file_node_description;   /*!< Description of all nodes */
+	string _file_link_description;   /*!< Description of all links */
 };
 

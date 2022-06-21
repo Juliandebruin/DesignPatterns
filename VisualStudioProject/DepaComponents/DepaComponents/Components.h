@@ -23,7 +23,7 @@ public:
     virtual Components* clone()     = 0;
 
     virtual void set_list(Components& subject);
-    void RemoveMeFromTheList();
+    void remove_from_list();
 
     void   set_name(string name);
     string get_name();
@@ -31,11 +31,9 @@ public:
     void   set_type(string);
     
 public:
-    Subject& subject_ = *this;
-    list<bool> inputs;
-    bool output = 0;
+    Subject& subject_;
     string _name;
     string _type;
 
-    int propegation_delay_ms = 1;
+    int propegation_delay_ms;
 };

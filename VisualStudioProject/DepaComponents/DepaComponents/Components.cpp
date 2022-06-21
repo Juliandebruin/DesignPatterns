@@ -5,12 +5,12 @@
 #include <iostream>
 
 Components::Components() :
-    _name("")
+    _name(""), propegation_delay_ms(0), subject_( *this)
 {
 }
 
 Components::Components(string componentName) :
-    _name("")
+    _name(""), propegation_delay_ms(0), subject_(*this)
 {
     FactoryMethod<std::string, Components>::assign(componentName, this);
 }
@@ -25,7 +25,7 @@ void Components::set_list(Components& subject)
     subject._number_of_listeners++;
 }
 
-void Components::RemoveMeFromTheList()
+void Components::remove_from_list()
 {
     subject_.detach(this);
 }

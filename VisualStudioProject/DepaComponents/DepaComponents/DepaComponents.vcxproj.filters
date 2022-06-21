@@ -107,6 +107,15 @@
     <Text Include="PdfExample.txt">
       <Filter>Source Files\InputFiles</Filter>
     </Text>
+    <Text Include="circuit4.txt">
+      <Filter>Source Files\InputFiles</Filter>
+    </Text>
+    <Text Include="circuit3.txt">
+      <Filter>Source Files\InputFiles</Filter>
+    </Text>
+    <Text Include="circuit1.txt">
+      <Filter>Source Files\InputFiles</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FactoryMethod.h">

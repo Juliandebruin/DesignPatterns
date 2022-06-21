@@ -160,7 +160,10 @@
     <ClCompile Include="XOR.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="circuit1.txt" />
     <Text Include="circuit2.txt" />
+    <Text Include="circuit3.txt" />
+    <Text Include="circuit4.txt" />
     <Text Include="PdfExample.txt" />
   </ItemGroup>
   <ItemGroup>

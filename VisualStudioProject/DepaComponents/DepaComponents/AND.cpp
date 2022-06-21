@@ -18,8 +18,13 @@ AND::~AND()
 
 void AND::update(bool output, int index)
 {
-    _input[index] = output;
-    _output = _input[0] * _input[1];
+    _input2.at(index) = output;
+    bool temp_state = 0;
+    for (int i = 0; i < _input2.size(); i++) {
+        temp_state = 1 * _input2.at(i);
+    }
+    _output = temp_state;
+
     Sleep(propegation_delay_ms);
     notify();
 }

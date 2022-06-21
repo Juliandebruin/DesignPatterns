@@ -10,18 +10,19 @@ class IObserver;
 class Subject 
 {
 public:
+    Subject();
+    virtual ~Subject();
     void attach(IObserver* observer, int index);
     void detach(IObserver* observer);
     void notify();
-    void create_massage(std::string message = "Empty");
-    void how_many_observers();
+ 
     void set_input(bool value);
+    void create_ports(int);
 
     bool _output = 0;
     std::vector<IObserver*> _list_observer;
 
 private:
-    std::string _message;
     std::vector<int> _ids;    
 
 protected:
@@ -31,6 +32,6 @@ protected:
 
     std::list<IObserver*>::iterator iterator;
     bool _input[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
-
+    std::vector<bool> _input2;
 };
 

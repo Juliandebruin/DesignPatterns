@@ -143,7 +143,8 @@ Components* FileParser::get_component(std::string componentName)
 void FileParser::set_links(std::string links, std::string nodeName)
 {
 	std::vector<std::string> linkName = tokenizer(links, ',');
-
+	Components* component = get_component(nodeName);
+	component->create_ports(linkName.size());
 	for (int i = 0; i < linkName.size(); i++)
 	{
 		Components* component = get_component(nodeName);
@@ -162,10 +163,22 @@ int FileParser::get_index(vector<string> v, string K)
 {
 	for (int i = 0; i < v.size(); i++) {
 		if (v.at(i) == K)
+			
 			return i;
 	}
 	return -1;
 }
+/*
+int FileParser::get_index(vector<std::string> v, string K)
+{
+	std::vector<string>::iterator it;
+	it = std::find(v.begin(), v.end(), K);
+	if (it != v.end())
+	{
+		return it - v.begin();
+	}
+	return -1;
+}*/
 
 void FileParser::create_links()
 {
@@ -208,6 +221,9 @@ void FileParser::create_links()
 				return;
 			}
 			index = get_index(links_parsed_first, links);
+		}
+		if (links_parsed_first.size() > 100) {
+			i = links_parsed_first.size();
 		}
 	}
 	
